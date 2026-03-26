@@ -32,6 +32,13 @@ def _mask_secret(value: str | None) -> str | None:
 
 
 def _load_token_data() -> dict[str, Any]:
+    if settings.shopee_shop_id and settings.shopee_access_token:
+        return {
+            "shop_id": settings.shopee_shop_id,
+            "access_token": settings.shopee_access_token,
+            "generated_at": None,
+            "source": "environment",
+        }
     if not settings.token_file.exists():
         raise FileNotFoundError(
             "Arquivo de token nao encontrado. Acesse /authorize e conclua a autorizacao da loja."
