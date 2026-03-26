@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: portal-shopee-login
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /login
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SHOPEE_ENV
+        value: test
+      - key: SHOPEE_API_HOST
+        value: https://openplatform.sandbox.test-stable.shopee.sg
+      - key: SHOPEE_AUTH_HOST
+        value: https://partner.test-stable.shopeemobile.com
+      - key: APP_TITLE
+        value: Portal Shopee Login

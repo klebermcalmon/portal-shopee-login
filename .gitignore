@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+shopee_token.json
+.venv/
